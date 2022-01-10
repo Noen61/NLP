@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 import random
 import math
+import os
+import re
 from const import MAX_VOCAB_SIZE
 
 
@@ -28,4 +30,4 @@ def build_vocab(path):
     word_freqs = word_freqs / np.sum(word_freqs)
     VOCAB_SIZE = len(idx_to_word) 
 
-    return idx_to_word,word_to_idx,word_freqs,VOCAB_SIZE
+    return text,idx_to_word,word_to_idx,word_freqs,VOCAB_SIZE,word_counts

@@ -28,10 +28,10 @@ def train(model, iterator, optimizer):
             
 
 if __name__ == '__main__':
-    train_path = 'data/en.txt'
-    idx_to_word,word_to_idx,word_freqs,VOCAB_SIZE = build_vocab(train_path)
-    train_dataset = WordEmbeddingDataset(word_to_idx, idx_to_word, word_freqs, word_counts)
-    train_loader = data.DataLoader(dataset=train_dataset,batch_size=BATCH_SIZE,shuffle=True,num_workers=4)
+    train_path = "datas/en.txt"
+    text,idx_to_word,word_to_idx,word_freqs,VOCAB_SIZE,word_counts = build_vocab(train_path)
+    train_dataset = WordEmbeddingDataset(text,word_to_idx, idx_to_word, word_freqs, word_counts)
+    train_loader = data.DataLoader(dataset=train_dataset,batch_size=BATCH_SIZE,shuffle=True,num_workers=2)
     device=torch.device("cpu")
     if torch.cuda.is_available():
         device = 'cuda'
